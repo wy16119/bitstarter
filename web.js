@@ -1,8 +1,9 @@
 var express = require('express');
+var fs = require('fs');
 var app = express();
 app.use(express.logger());
 
-var buffer = fs.readFile('index.html');
+var buffer = fs.readFileSync('index.html');
 var content = buffer.toString('utf-8');
 
 app.get('/', function(request, response) {
